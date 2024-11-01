@@ -1,426 +1,211 @@
-
-
 <!DOCTYPE html>
-<html lang="en-US">
-<head>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<script type="importmap">
+		{
+			"imports": {
+				"three": "../deps/three/0.128.0/build/three.module.js"
+			}
+		}
+		</script>
+		<link rel="preload" href="static/fonts/BlueNight.woff2" as="font" type="font/woff2" crossorigin>
+		<script type="module">
+			let fn = e => {
+				if (e.code == "Escape") e.preventDefault();
+			};
+			window.addEventListener("keydown", fn);
+			window.addEventListener("load", () => window.removeEventListener("keydown", fn));
+		</script>
+		<script type="module" src="js/assetWorkerPreload-tI1vpe_0.js"></script>
+		<script type="module" src="js/index-sjrLnsEc.js"></script>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="static/favicon.svg" sizes="any" />
+		<link rel="mask-icon" href="static/favicon.svg" sizes="any" color="#000000" />
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<meta name="keywords" content="pacman, pac-man, play pacman, pacman game, pacman online" />
-<meta name="author" content="W3technic" />
-<meta name="twitter:card" content="summary_large_image" />
+		<meta name="description" content="Capture the flag medieval style!">
+		<meta name="keywords" content="3D, multiplayer, first person, shooter, capture the flag, ctf, fps, first person shooter, bow, arrow, medieval, online, pubg, fortnite, fast-paced, browser game">
+		<link rel="canonical" href="https://narrow.one">
+		<link rel="manifest" href="static/manifest.json">
+		<link rel="apple-touch-icon" href="static/icons/icon-2048.jpg">
 
-<meta name="robots" content="all" />
-<meta name="revisit-after" content="7 days" />
+		<!--open graph stuff-->
+		<meta property="og:title" content="Narrow One">
+		<meta property="og:description" content="Capture the flag medieval style!">
+		<!-- <meta property="fb:app_id" content="371757996756993"> -->
+		<meta property="og:url" content="https://narrow.one">
+		<meta property="og:image" content="/static/img/thumb.png">
+		<meta property="og:type" content="game">
+		<link rel="image_src" href="/static/img/thumb.png">
 
-<link rel="stylesheet" type="text/css" href="css/core-game-site.css" />
-<link rel="stylesheet" href="build/app.css" />
+		<!--twitter stuff-->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@pelican_party">
+		<meta name="twitter:title" content="Narrow One">
+		<meta name="twitter:description" content="Capture the flag medieval style!">
+		<meta name="twitter:image" content="/static/img/thumb.png">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans:400,600" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
-<script src="js/core-game-site.js" type="bc1d95c21866a9cb64c08477-text/javascript"></script>
-<script src="js/screenfull.min.js" type="bc1d95c21866a9cb64c08477-text/javascript"></script>
-<script src="build/app.js" type="bc1d95c21866a9cb64c08477-text/javascript"></script>
-<style>
-    #menu1 li a {
-display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:5px;
-}
-
-     
-.ad {
-  outline: 1px solid #333;
-  background-color: #333;
-  overflow: hidden;
-}
-.adsbygoogle {
-  display: inline-block;
-}
-.ad.skyscraper1,
-.ad.skyscraper2,
-.ad.skyscraper1 .adsbygoogle,
-.ad.skyscraper2 .adsbygoogle {
-  width: 160px;
-  height: 600px;
-}
-.ad.skyscraper1 {
-  position: absolute;
-  top: 50%;
-  margin-top: -300px;
-  left: 0;
-}
-.ad.skyscraper2 {
-  position: absolute;
-  top: 50%;
-  margin-top: -300px;
-  right: 0;
-}
-.ad.mobile,
-.ad.mobile .adsbygoogle {
-  display: block;
-  width: 100%;
-  height: 50px;
-}
-.ad.mobile {
-  position: absolute;
-  bottom: 0;
-  bottom: env(safe-area-inset-bottom);
-  width: 100%;
-  margin: 0;
-  overflow: hidden;
-}
-.ad.mobile .adsbygoogle {
-  margin: 0 auto;
-}
+		<script type="application/ld+json">
+		  {"@context":"http://schema.org","@type":"VideoGame","name":"Narrow One","url":"http://narrow.one","description":"Capture the flag medieval style!","inLanguage":["English"],"genre":["FPS","First Person Shooter","CTF","Capture The Flag","MMO","Massively multiplayer online","RTS","Real-time strategy","Casual game"],"creator":{"@type":"Organization","name":"Pelican Party Studios","url":"pelicanparty.co"},"gamePlatform":"webgame","applicationCategory":["Game","webgame","GameApplication"],"operatingSystem":["Windows","OSX","Linux"],"aggregateRating":{"worstRating":1,"bestRating":5,"ratingValue":4.8346,"ratingCount":359457}}
+		</script>
+		<style>
+			body, html {
+				position: relative;
+				margin: 0;
+				height: 100%;
+				user-select: none;
+				-webkit-user-select: none;
+				-webkit-touch-callout: none;
+				font-family: sans-serif;
+			}
 
 
+			@font-face {
+				font-family: 'BlueNight';
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url(static/fonts/BlueNight.woff2) format('woff2');
+			}
 
-@media (min-width: 1261px) {
-  .ad.skyscraper1 {
-    margin-left: 110px;
-  }
-  .ad.skyscraper2 {
-    margin-right: 110px;
-  }
-}
-@media (max-width: 800px) and (min-height: 661px) {
-  .ad.skyscraper2 {
-    display: none;
-  }
-}
-@media (max-height: 800px) {
-  .ad.skyscraper1,
-  .ad.skyscraper2 {
-    margin-top: -270px;
-  }
-}
-@media (max-height: 660px) {
-  .neave,
-  .mute {
-    display: none;
-  }
-  .ad.skyscraper1,
-  .ad.skyscraper2 {
-    margin-top: -300px;
-  }
-}
+			.blueNight{
+				font-family: BlueNight, sans-serif;
+				text-transform: lowercase;
+				font-weight: lighter;
+				line-height: 0.7em;
+			}
 
+			.fullScreen{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+			}
 
-@media (max-width: 540px) {
-  .ad.skyscraper1,
-  .ad.skyscraper2 {
-    display: none;
-  }
-  .neave,
-  .mute {
-    display: block;
-  }
-}
-@media (max-width: 540px), (max-height: 630px) {
-  .game {
-    width: 300px;
-    height: 300px;
-    margin-left: -150px;
-    margin-top: -205px;
-  }
-  .mobile .game {
-    margin-left: -150px;
-    margin-top: -215px;
-  }
-  .square {
-    border-width: 3px;
-  }
-  .square.right > div {
-    margin-left: -3px;
-  }
-  .square.bottom > div {
-    margin-top: -3px;
-  }
-  .square .o {
-    border-width: 10px;
-  }
-  .square .x:before,
-  .square .x:after {
-    left: 45px;
-    top: 13px;
-    width: 10px;
-    height: 74px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-  }
-  .scores {
-    width: 320px;
-    margin-left: -160px;
-    margin-top: 135px;
-  }
-  .mobile .scores {
-    margin-left: -160px;
-    margin-top: 125px;
-  }
-  .scores p {
-    font-size: 15px;
-  }
-  .scores .score {
-    font-size: 25px;
-    padding-top: 9px;
-    height: 50px;
-  }
-  .scores .o {
-    width: 9px;
-    height: 9px;
-    margin: 0;
-  }
-  .scores .x {
-    width: 10px;
-    height: 10px;
-  }
-  .scores .x:before,
-  .scores .x:after {
-    margin-left: 4px;
-    height: 11px;
-  }
-  .player1,
-  .player2 {
-    width: 130px;
-  }
-  .scores .swap svg {
-    margin-bottom: -2px;
-  }
-}
-@media (max-height: 520px) {
-  .ad.mobile,
-  .ad.skyscraper1,
-  .ad.skyscraper2 {
-    display: none;
-  }
-  .neave,
-  .mute {
-    display: block;
-  }
-  .mobile .game,
-  .game {
-    top: 60px;
-    margin-top: 0;
-  }
-  .mobile .scores,
-  .scores {
-    top: 380px;
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-}
-@media (max-width: 350px) {
-  .scores .swap {
-    display: none;
-  }
-}
-@media (min-width: 421px) and (max-height: 450px) {
-  .mobile .game,
-  .game {
-    top: 10px;
-  }
-  .mobile .scores,
-  .scores {
-    top: 320px;
-  }
-}
-.top-nav{
-    display:flex;
-    gap:15px;
-    align-items: center;
-  justify-content: center;
+			#loadingImage{
+				object-fit: cover;
+				filter: blur(max(1vh,1vw));
+				transform: scale(1.04);
+				pointer-events: none;
+			}
+			#loadingImageContainer{
+				transition: opacity 0.2s;
+				overflow: hidden;
+			}
+			#loadingImageContainer.hidden{
+				opacity: 0;
+			}
 
+			#mainInfoTextContainer {
+				overflow: hidden;
+			}
+			.mainInfoText{
+				font-size: 50px;
+				position: absolute;
+				left: 0;
+				width: 100%;
+				top: 50%;
+				text-align: center;
+				pointer-events: none;
+				z-index: 11;
+			}
 
-}
+			.whiteBigText{
+				color: white;
+				-webkit-text-stroke: 1px black;
+				filter: var(--default-drop-shadow);
+			}
 
-.top-nav, .top-nav-left{
-  background-color:rgba(0,0,0,.5);
-  border-radius:10px;
-  padding:0 10px;
-    
-}
+			#mainMenuLogo{
+				background: url(static/img/logo.svg);
+				position: absolute;
+				width: 450px;
+				height: 300px;
+				left: 50%;
+				transform: translateX(-50%);
+				filter: var(--default-drop-shadow);
+				transform-origin: top;
+				pointer-events: none;
+			}
 
-.top-nav{
+			@media (max-width: 950px), (max-height: 550px){
+				#mainMenuLogo{
+					transform: translateX(-50%) scale(0.6);
+				}
+			}
+			@media (max-width: 780px) {
+				#mainMenuLogo{
+					display: none;
+				}
+			}
 
+			.scaleBounce{
+				animation: 0.7s ease-in-out infinite alternate scaleBounce;
+			}
 
-    color: #f5deb3;
-    font-size: 13px;
-  }
+			@keyframes scaleBounce{
+				from{
+					transform: scale(1);
+				}
 
-  .top-nav a {
-    text-decoration: none;
-    color: white;
-    font-weight:bold;
-  }
+				to{
+					transform: scale(1.1);
+				}
+			}
 
-  .top-nav a:hover {
-    color: #58a6ff;
-  }
+			#mainMenu{
+				z-index: 10;
+				background: #00000040;
+				overflow: hidden;
+			}
 
-@media (max-width: 1060px) {
+			.wrinkledPaper,
+			#qc-cmp2-ui,
+			#qc-cmp2-ui button[mode="primary"],
+			#qc-cmp2-ui button[mode="secondary"],
+			input.dialog-range-input[type=range],
+			input.dialog-range-input[type=range]::-webkit-slider-thumb {
+				background: paint(wrinkledPaper);
+			}
 
-  .ad.skyscraper1,
-  .ad.skyscraper2 {
-    display: none!important;
-  }
-    
-}
-</style>
+			.wrinkledLine {
+				background: paint(wrinkledLine);
+			}
 
-</head>
-<body>
-<div id="full-page-container">
+			.wrinkled-paper-mask {
+				mask: paint(wrinkledPaper);
+				-webkit-mask: paint(wrinkledPaper);
+			}
 
-<header>
-<div id="header-message"><div>
-</header>
-
-
-<main>
-<div id="game-container">
-<img id="backdrop" class="backdrop" src="app/style/graphics/backdrop.png">
-<div id="fps-display" class="fps-display"></div>
-<div id="preload-div" class="preload-div"></div>
-<div id="main-menu-container" class="main-menu-container">
-<img id="logo" class="logo" src="app/style/graphics/pacman_logo.png">
-<button id="game-start" class="game-start">
-PLAY
-</button>
-</div>
-<div class="header-buttons">
-<button>
-<i id="pause-button" class="material-icons">
-pause
-</i>
-</button>
-<button>
-<i id="sound-button" class="material-icons"></i>
-</button>
-</div>
-<div id="paused-text" class="paused-text">
-PAUSED
-</div>
-<div id="game-ui" class="game-ui">
-<div id="row-top" class="row top">
-<div class="column _25">
-<div class="one-up">1UP</div>
-<div id="points-display"></div>
-</div>
-<div class="column _50">
-<div>HIGH SCORE</div>
-<div id="high-score-display"></div>
-</div>
-</div>
-<div id="maze" class="maze">
-<img id="maze-img" class="maze-img" src="app/style/graphics/spriteSheets/maze/maze_blue.svg">
-<div id="maze-cover" class="maze-cover"></div>
-<div id="dot-container"></div>
-<p id="pacman" class="pacman"></p>
-<p id="pacman-arrow" class="pacman"></p>
-<p id="clyde" class="ghost"></p>
-<p id="inky" class="ghost"></p>
-<p id="pinky" class="ghost"></p>
-<p id="blinky" class="ghost"></p>
-</div>
-<div id="bottom-row" class="row bottom">
-<div id="extra-lives" class="extra-lives"></div>
-<div id="fruit-display" class="fruit-display"></div>
-</div>
-</div>
-<div id="movement-buttons" class="movement-buttons">
-<div class="row">
-<button id="button-up" class="button-up">
-<i class="material-icons">keyboard_arrow_up</i>
-</button>
-</div>
-<div class="row">
-<button id="button-left" class="button-left">
-<i class="material-icons">keyboard_arrow_left</i>
-</button>
-<button id="button-right" class="button-right">
-<i class="material-icons">keyboard_arrow_right</i>
-</button>
-</div>
-<div class="row">
-<button id="button-down" class="button-down">
-<i class="material-icons">keyboard_arrow_down</i>
-</button>
-</div>
-</div>
-<div id="left-cover" class="loading-cover left"></div>
-<div id="right-cover" class="loading-cover right"></div>
-<div id="loading-container" class="loading-container">
-<div id="loading-pacman" class="loading-pacman"></div>
-<div id="loading-dot-mask" class="loading-dot-mask"></div>
-<div class="loading-dot _5"></div>
-<div class="loading-dot _10"></div>
-<div class="loading-dot _15"></div>
-<div class="loading-dot _20"></div>
-<div class="loading-dot _25"></div>
-<div class="loading-dot _30"></div>
-<div class="loading-dot _35"></div>
-<div class="loading-dot _40"></div>
-<div class="loading-dot _45"></div>
-<div class="loading-dot _50"></div>
-<div class="loading-dot _55"></div>
-<div class="loading-dot _60"></div>
-<div class="loading-dot _65"></div>
-<div class="loading-dot _70"></div>
-<div class="loading-dot _75"></div>
-<div class="loading-dot _80"></div>
-<div class="loading-dot _85"></div>
-<div class="loading-dot _90"></div>
-<div class="loading-dot _95"></div>
-</div>
-<div id="error-message" class="error-message">
-<div class="header">
-<div>OOPS!</div>
-<div class="error-pacman"></div>
-</div>
-<div class="body">
-We were unable to load the images/sounds needed to play the game.</br></br>
-This could be due to a poor connection, a strict network policy, or
-by playing on an unsupported browser.
-</div>
-</div>
-<script type="bc1d95c21866a9cb64c08477-text/javascript">
-        window.onload = () => {
-          let gameCoordinator = new GameCoordinator();
-        }
-        document.addEventListener('keydown', function(event) {
-          if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-            event.preventDefault();
-          }
-        });
-        // Add a message event listener within the iframe
-window.addEventListener('message', function(event) {
-  // Check that the message is from an allowed origin for security
-  if (event.origin !== 'https://your-mainsite.com') {
-    return;
-  }
-
-  // Handle the received keypress event
-  const receivedKey = event.data;
-
-  // Now you can process the key within the iframe
-  console.log('Key received in iframe:', receivedKey);
-});
-
-
-      </script>
-</div>
-</main>
-
-</div>
-<script src="./rocket-loader.min.js" data-cf-settings="bc1d95c21866a9cb64c08477-|49" defer></script>
-</body>
+			.itemsTable > tbody > tr:nth-child(even){
+				background: paint(wrinkledPaper);
+			}
+		</style>
+		<noscript>
+			<style>#mainInfoText{display: none;}</style>
+		</noscript>
+	</head>
+	<body ontouchstart="">
+		<div id="gameWrapper">
+			<div id="mainInfoTextContainer" class="fullScreen">
+				<noscript>
+					<div class="mainInfoText blueNight whiteBigText">Enable javascript to play.</div>
+				</noscript>
+				<div id="mainInfoText" class="mainInfoText blueNight whiteBigText scaleBounce">Loading...</div>
+			</div>
+			<div id="mainMenu" class="fullScreen">
+				<div id="mainMenuLogo"></div>
+			</div>
+			<div id="loadingImageContainer" class="fullScreen" inert>
+				<picture>
+					<source srcset="static/img/loadScreen/loadThumb.webp" type="image/webp" />
+					<img src="static/img/loadScreen/loadThumb.png" id="loadingImage" class="fullScreen">
+				</picture>
+			</div>
+		</div>
+	</body>
 </html>
